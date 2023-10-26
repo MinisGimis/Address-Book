@@ -1,0 +1,55 @@
+<div class="address-book-display">
+  <div class="address-book-button-container">
+    <app-button
+      class="address-book-pagination-button"
+      (click)="prevPage()"
+      [disabled]="currentPage == 1"
+      >Previous</app-button
+    >
+
+    <app-button class="address-book-pagination-button" (click)="nextPage()"
+      >Next</app-button
+    >
+  </div>
+
+  <div class="address-book-display-contents">
+    <p
+      class="address-book-page-display"
+      [attr.aria-label]="'Page ' + currentPage"
+    >
+      Page {{ currentPage }}
+    </p>
+    <div *ngIf="loading"><p>Loading...</p></div>
+    <div *ngIf="!loading">
+      <div *ngFor="let person of people$ | async; let i = index">
+        <button
+          tabIndex="0"
+          (click)="goToDetails(i)"
+          class="address-book-list-container"
+          role="link"
+          [attr.aria-label]="
+            'Go to details for ' +
+            person.name.title +
+            ' ' +
+            person.name.firstName +
+            ' ' +
+            person.name.lastName
+          "
+        >
+          <img class="address-book-list-thumbnail" [src]="person.thumbnail" />
+          <p class="address-book-list-name">
+            {{ person.name.title }} {{ person.name.firstName }}
+            {{ person.name.lastName }}
+          </p>
+          <fa-icon [icon]="arrowIcon" class="address-book-arrow-icon"></fa-icon>
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="error">
+      <p>
+        Error loading, please check internet connection and refresh the page
+      </p>
+    </div>
+  </div>
+</div>

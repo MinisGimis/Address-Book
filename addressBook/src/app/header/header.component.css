@@ -1,0 +1,43 @@
+.address-book-header {
+  background-color: var(--primary-color);
+  padding: 24px 24px 12px 24px;
+  box-shadow: 0 2px 2px 0 var(--primary-color);
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.address-book-title {
+  background-color: transparent;
+  border: none;
+}
+
+.address-book-header h2 {
+  margin: 0;
+  width: fit-content;
+  color: var(--secondary-text-color);
+  cursor: pointer;
+}
+
+.address-book-refresh-button {
+  margin: auto 0 auto auto;
+  padding-right: 48px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.address-book-refresh-button fa-icon {
+  font-size: 1.5em;
+  color: var(--secondary-text-color);
+}
+
+.address-book-refresh-button fa-icon:hover {
+  color: var(--secondary-color);
+}
+
+.address-book-header h2:hover {
+  color: var(--secondary-color);
+}

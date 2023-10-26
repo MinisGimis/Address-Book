@@ -1,0 +1,23 @@
+.address-book-button-container {
+}
+
+.address-book-button {
+  box-shadow: 0 2px 2px 0 var(--primary-color);
+  border-radius: 8px;
+  border-width: 0;
+  width: auto;
+  min-width: 6rem;
+  height: 44px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--primary-color);
+  color: var(--secondary-text-color);
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.address-book-button:hover {
+  background-color: var(--secondary-color);
+  box-shadow: 0 2px 2px 0 var(--secondary-color);
+}

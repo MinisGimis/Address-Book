@@ -1,0 +1,71 @@
+.address-book-button-container {
+  display: flex;
+  position: fixed;
+  top: 80px;
+}
+
+.address-book-pagination-button {
+  padding-right: 12px;
+}
+
+.address-book-display-contents {
+  margin-top: 136px;
+  padding-bottom: 136px;
+}
+
+.address-book-list-container {
+  display: flex;
+
+  height: 6em;
+  border-bottom: 1px solid var(--secondary-color);
+  cursor: pointer;
+  align-items: center;
+  background: white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-align: start;
+  width: 100%;
+}
+
+.address-book-list-container:hover {
+  display: flex;
+  color: var(--secondary-color);
+  border-radius: 4px;
+}
+
+.address-book-list-name {
+  padding-left: 12px;
+  font-size: large;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.address-book-page-display {
+  font-size: large;
+  font-weight: bold;
+  text-overflow: ellipsis;
+}
+
+.address-book-list-thumbnail {
+  border-radius: 8px;
+  border-style: solid;
+  border-color: var(--primary-color);
+}
+
+.address-book-list-container:hover .address-book-list-thumbnail {
+  border-color: var(--secondary-color);
+}
+
+.address-book-list-container:hover .address-book-arrow-icon {
+  visibility: visible;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.address-book-arrow-icon {
+  margin-right: 0;
+  margin-left: auto;
+  visibility: hidden;
+}

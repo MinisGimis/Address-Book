@@ -1,0 +1,169 @@
+<div class="address-book-details">
+  <app-button class="address-book-details-back" (click)="goBack()"
+    >Go Back</app-button
+  >
+  <div *ngIf="loading">
+    <p>Loading person details...</p>
+  </div>
+
+  <div *ngIf="person$ | async as person">
+    <div *ngIf="!loading && person" class="address-book-details-content">
+      <div class="column">
+        <div
+          class="address-book-details-copy-container"
+          (click)="
+            copyToClipboard(person.name.firstName + ' ' + person.name.lastName)
+          "
+        >
+          <h2 class="address-book-details-name">
+            {{ person.name.title }} {{ person.name.firstName }}
+            {{ person.name.lastName }}
+          </h2>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+
+        <img class="address-book-details-picture" [src]="person.portrait" />
+
+        <div
+          class="address-book-details-copy-container"
+          (click)="copyToClipboard(person.gender)"
+        >
+          <p><strong>Gender:</strong> {{ person.gender }}</p>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+        <div
+          class="address-book-details-copy-container"
+          (click)="copyToClipboard(person.birthdate)"
+        >
+          <p><strong>Birthdate:</strong> {{ person.birthdate | date }}</p>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+        <div
+          class="address-book-details-copy-container"
+          (click)="copyToClipboard(getCountryName(person.nationality))"
+        >
+          <p>
+            <strong>Nationality:</strong>
+            {{ getCountryName(person.nationality) }}
+          </p>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+        <div class="address-book-contact-information">
+          <h3>Contact Information</h3>
+          <div
+            class="address-book-details-copy-container"
+            (click)="copyToClipboard(person.contacts.email)"
+          >
+            <p><strong>Email:</strong> {{ person.contacts.email }}</p>
+            <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+          </div>
+          <div
+            class="address-book-details-copy-container"
+            (click)="copyToClipboard(person.contacts.phone)"
+          >
+            <p><strong>Phone:</strong> {{ person.contacts.phone }}</p>
+            <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+          </div>
+          <div
+            class="address-book-details-copy-container"
+            (click)="copyToClipboard(person.contacts.cell)"
+          >
+            <p><strong>Cell:</strong> {{ person.contacts.cell }}</p>
+            <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <h3
+          class="location address-book-details-copy-container"
+          (click)="
+            copyToClipboard(
+              person.location.streetNumber +
+                ' ' +
+                person.location.streetName +
+                ', ' +
+                person.location.city +
+                ', ' +
+                person.location.state +
+                ', ' +
+                person.location.country +
+                ', ' +
+                person.location.postalCode
+            )
+          "
+        >
+          Location
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </h3>
+
+        <div
+          class="address-book-details-copy-container"
+          (click)="
+            copyToClipboard(
+              person.location.streetNumber + ' ' + person.location.streetName
+            )
+          "
+        >
+          <p>
+            <strong>Street:</strong> {{ person.location.streetNumber }}
+            {{ person.location.streetName }}
+          </p>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+        <div
+          class="address-book-details-copy-container"
+          (click)="copyToClipboard(person.location.city)"
+        >
+          <p><strong>City:</strong> {{ person.location.city }}</p>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+        <div
+          class="address-book-details-copy-container"
+          (click)="copyToClipboard(person.location.state)"
+        >
+          <p><strong>State:</strong> {{ person.location.state }}</p>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+        <div
+          class="address-book-details-copy-container"
+          (click)="copyToClipboard(person.location.country)"
+        >
+          <p><strong>Country:</strong> {{ person.location.country }}</p>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+        <div
+          class="address-book-details-copy-container"
+          (click)="copyToClipboard(person.location.postalCode)"
+        >
+          <p><strong>Postal Code:</strong> {{ person.location.postalCode }}</p>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+        <div
+          class="address-book-details-copy-container"
+          (click)="copyToClipboard(person.location.timezone)"
+        >
+          <p><strong>Timezone:</strong> {{ person.location.timezone }}</p>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+
+        <div
+          class="address-book-details-copy-container"
+          (click)="copyToClipboard(person.registered)"
+        >
+          <p><strong>Registered:</strong> {{ person.registered | date }}</p>
+          <fa-icon [icon]="copyIcon" class="address-book-copy-icon"></fa-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div *ngIf="error">
+      <p>
+        Error loading person's details. Please try refreshing the page or going
+        back and selecting someone else.
+      </p>
+    </div>
+  </div>
+</div>

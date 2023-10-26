@@ -1,0 +1,53 @@
+.address-book-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.address-book-details-picture {
+  border-radius: 8px;
+  border-style: solid;
+  border-color: var(--primary-color);
+}
+
+.address-book-details-content {
+  word-wrap: break-word;
+  padding-bottom: 136px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .address-book-details-content {
+    flex-direction: row;
+    column-gap: 5em;
+  }
+}
+
+.address-book-details-content p {
+  cursor: pointer;
+  margin: 3px;
+}
+
+.address-book-details-content h2 {
+  cursor: pointer;
+}
+
+.location {
+  cursor: pointer;
+}
+
+.address-book-details-copy-container {
+  display: flex;
+  align-items: center;
+}
+
+.address-book-copy-icon {
+  padding-left: 6px;
+  visibility: hidden;
+}
+
+.address-book-details-copy-container:hover .address-book-copy-icon {
+  visibility: visible;
+  cursor: pointer;
+}

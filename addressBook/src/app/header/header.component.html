@@ -1,0 +1,20 @@
+<header class="address-book-header">
+  <button
+    class="address-book-title"
+    [attr.aria-label]="'Address Book Home'"
+    tabIndex="0"
+    (click)="goHome()"
+  >
+    <h2>Address Book</h2>
+  </button>
+  <button
+    class="address-book-refresh-button"
+    [attr.aria-label]="'Refresh Everything'"
+  >
+    <fa-icon
+      tabIndex="0"
+      [icon]="syncIcon"
+      (click)="refreshEverything()"
+    ></fa-icon>
+  </button>
+</header>
