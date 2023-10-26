@@ -2,6 +2,8 @@
 
 Address Book - Web FrontEnd (Angular)
 
+The bulk of the code is in ```/addressBook/src/app```
+
 # Deployment / Running Instructions
 
 1. Navigate to the root directory with ```cd addressBook```
